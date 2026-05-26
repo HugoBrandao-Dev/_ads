@@ -1,0 +1,12 @@
+{
+  "name": "plantacao",
+  "version": "1.0.0",
+  "description": "O trabalho ira simular uma area com plantacao e uma residencia onde o usuario podera navegar entre elas e interagir com objetos presentes nessas areas.",
+  "license": "ISC",
+  "author": "Hugo da R. Brandao",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "main": "node main.js"
+  }
+}

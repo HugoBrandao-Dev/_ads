@@ -1,6 +1,5 @@
+import carregarAcoesPossiveis from "./src/carregarAcoesPossiveis.js";
 import locais from "./src/locais.js";
-import campos from "./src/campos/campos.js";
-import comodos from "./src/comodos/comodos.js";
 import acoesItemsInventorio from "./src/items/acoesItemsInventorio.js"
 import acoes from "./src/items/acoes.js";
 import inventorio from "./src/inventorio.js"
@@ -19,13 +18,7 @@ escreva("Seu nome é", nome);
 let sair = false;
 
 while (!sair) {
-    let acoesItems = acoesItemsInventorio();
-    let acoesLocal = null;
-    if (locais.espaco == "campo") {
-        acoesLocal = campos[locais.local].conexoes;
-    } else {
-        acoesLocal = comodos[locais.local].conexoes;
-    }
+    let acoesPossiveis = carregarAcoesPossiveis();
 
     console.clear();
 
@@ -40,10 +33,12 @@ while (!sair) {
     console.log("\nVocê pode:");
 
     // Ações baseadas nos item do inventório.
-    console.log(acoesItems);
+    console.log(acoesPossiveis.acoesItems);
 
     console.log("\nVocê pode ir para:");
-    console.log(acoesLocal);
+
+    // Ações baseadas no local.
+    console.log(acoesPossiveis.acoesLocal);
 
     let acao = entrada("AÇÃO: ");
     if (acao.toLowerCase() == "sair") {

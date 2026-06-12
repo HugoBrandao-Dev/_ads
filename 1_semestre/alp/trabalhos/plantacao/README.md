@@ -1,3 +1,2 @@
 # Descrição
-O projeto irá simular uma área contendo plantações e uma residência, onde o usuário poderá navegar entre esses
-locais e interagir com objetos presentes nas mesmas.
+O projeto é um jogo que simula um espaço com plantações e uma casa, onde o jogador pode andar livremente pelos cenários e interagir com os objetos que encontrar pelo caminho.

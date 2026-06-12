@@ -1,6 +1,7 @@
 import locais from "./src/locais.js";
 import campos from "./src/campos/campos.js";
 import comodos from "./src/comodos/comodos.js";
+import acoesItemsInventorio from "./src/items/acoesItemsInventorio.js"
 import acoes from "./src/items/acoes.js";
 import inventorio from "./src/inventorio.js"
 import escreva from "./src/saida.js";
@@ -18,8 +19,7 @@ escreva("Seu nome é", nome);
 let sair = false;
 
 while (!sair) {
-    let items = null;
-    let acoesItems = inventorio.map(i => Object.keys(acoes[i]));;
+    let acoesItems = acoesItemsInventorio();
     let acoesLocal = null;
     if (locais.espaco == "campo") {
         acoesLocal = campos[locais.local].conexoes;

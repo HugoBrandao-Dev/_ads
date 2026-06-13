@@ -1,6 +1,7 @@
 import carregarComandosPossiveis from "./src/carregarComandosPossiveis.js";
 import validarComandos from "./src/validarComando.js";
 import mostrarLocalizacaoAtual from "./src/locais/mostrarLocalizacaoAtual.js";
+import mostrarAcoesItemsInventorio from "./src/inventorio/mostrarAcoesItems.js";;
 import locais from "./src/locais/locais.js";
 import mostrarInventorio from "./src/inventorio/mostrarInventorio.js"
 import escreva from "./src/saida.js";
@@ -21,11 +22,7 @@ while (!sair) {
 
     mostrarLocalizacaoAtual();
     mostrarInventorio();
-
-    escreva("\nVocê pode:");
-
-    // Ações baseadas nos item do inventório.
-    escreva(acoesPossiveis.acoesItems);
+    mostrarAcoesItemsInventorio();
 
     escreva("\nVocê pode ir para:");
 

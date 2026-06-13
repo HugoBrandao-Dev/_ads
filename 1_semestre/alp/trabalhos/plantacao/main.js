@@ -3,18 +3,9 @@ import validarComandos from "./src/validarComando.js";
 import mostrarLocalizacaoAtual from "./src/locais/mostrarLocalizacaoAtual.js";
 import mostrarAcoesItemsInventorio from "./src/inventorio/mostrarAcoesItems.js";;
 import mostrarAcoesLocalizacao from "./src/locais/mostrarAcoes.js";
-import locais from "./src/locais/locais.js";
 import mostrarInventorio from "./src/inventorio/mostrarInventorio.js"
 import escreva from "./src/saida.js";
 import leia from "./src/entrada.js";
-import chalk from "chalk";
-
-/*
-escreva(chalk.bgBlue("Comando de saída de dados..."));
-let nome = leia(chalk.green("Comando para entrada de dados...Nome: "));
-
-escreva("Seu nome é", nome);
-*/
 
 let sair = false;
 

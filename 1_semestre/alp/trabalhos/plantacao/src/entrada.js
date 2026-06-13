@@ -1,3 +1,8 @@
+import chalk from "chalk";
 import PromptSync from "prompt-sync";
 
-export default PromptSync();
+let prompt = PromptSync();
+
+export default function entrada(txt, estilo = "red") {
+    return prompt(chalk[estilo](txt));
+}

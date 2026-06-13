@@ -5,7 +5,6 @@ import inventorio from "./src/inventorio.js"
 import escreva from "./src/saida.js";
 import leia from "./src/entrada.js";
 import chalk from "chalk";
-import entrada from "./src/entrada.js";
 
 /*
 escreva(chalk.bgBlue("Comando de saída de dados..."));
@@ -19,23 +18,23 @@ let sair = false;
 while (!sair) {
     let acoesPossiveis = carregarComandosPossiveis();
 
-    console.log('='.repeat(40));
-    console.log("Você está na", locais.espaco.toUpperCase());
-    console.log("Mais precisamente no(a)", locais.local.toLocaleLowerCase());
-    console.log('='.repeat(40));
+    escreva('='.repeat(40));
+    escreva(`Você está na ${ locais.espaco.toLocaleUpperCase() }`);
+    escreva(`Mais precisamente no(a) ${ locais.local.toLocaleLowerCase() }`);
+    escreva('='.repeat(40));
 
-    console.log("\nINVENTÓRIO:");
-    inventorio.forEach(i => console.log(`[ ${ i } ]`))
+    escreva("\nINVENTÓRIO:");
+    inventorio.forEach(i => escreva(`[ ${ i } ]`))
 
-    console.log("\nVocê pode:");
+    escreva("\nVocê pode:");
 
     // Ações baseadas nos item do inventório.
-    console.log(acoesPossiveis.acoesItems);
+    escreva(acoesPossiveis.acoesItems);
 
-    console.log("\nVocê pode ir para:");
+    escreva("\nVocê pode ir para:");
 
     // Ações baseadas no local.
-    console.log(acoesPossiveis.acoesLocal);
+    escreva(acoesPossiveis.acoesLocal);
 
     escreva("\nCOMANDO: ");
     let comando = leia("> ");
@@ -44,9 +43,9 @@ while (!sair) {
     } else {
         console.clear();
         if (validarComandos(comando)) {
-            console.log("Comando válido");
+            escreva("Comando válido");
         } else {
-            console.log("Comando inválido");
+            escreva("Comando inválido");
         }
     }
 }

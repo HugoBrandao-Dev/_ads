@@ -1,6 +1,7 @@
 import carregarComandosPossiveis from "./src/carregarComandosPossiveis.js";
 import validarComandos from "./src/validarComando.js";
-import locais from "./src/locais.js";
+import mostrarLocalizacaoAtual from "./src/locais/mostrarLocalizacaoAtual.js";
+import locais from "./src/locais/locais.js";
 import mostrarInventorio from "./src/inventorio/mostrarInventorio.js"
 import escreva from "./src/saida.js";
 import leia from "./src/entrada.js";
@@ -18,11 +19,7 @@ let sair = false;
 while (!sair) {
     let acoesPossiveis = carregarComandosPossiveis();
 
-    escreva('='.repeat(40));
-    escreva(`Você está na ${ locais.espaco.toLocaleUpperCase() }`);
-    escreva(`Mais precisamente no(a) ${ locais.local.toLocaleLowerCase() }`);
-    escreva('='.repeat(40));
-
+    mostrarLocalizacaoAtual();
     mostrarInventorio();
 
     escreva("\nVocê pode:");

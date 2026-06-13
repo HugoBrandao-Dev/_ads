@@ -1,4 +1,4 @@
-import locais from "../locais.js";
+import locais from "../locais/locais.js";
 
 let acoes = {
     "arado": {

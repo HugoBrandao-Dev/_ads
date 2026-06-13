@@ -1,7 +1,6 @@
-import carregarAcoesPossiveis from "./src/carregarAcoesPossiveis.js";
+import carregarComandosPossiveis from "./src/carregarComandosPossiveis.js";
+import validarComandos from "./src/validarComando.js";
 import locais from "./src/locais.js";
-import acoesItemsInventorio from "./src/items/acoesItemsInventorio.js"
-import acoes from "./src/items/acoes.js";
 import inventorio from "./src/inventorio.js"
 import escreva from "./src/saida.js";
 import leia from "./src/entrada.js";
@@ -18,9 +17,7 @@ escreva("Seu nome é", nome);
 let sair = false;
 
 while (!sair) {
-    let acoesPossiveis = carregarAcoesPossiveis();
-
-    console.clear();
+    let acoesPossiveis = carregarComandosPossiveis();
 
     console.log('='.repeat(40));
     console.log("Você está na", locais.espaco.toUpperCase());
@@ -40,10 +37,16 @@ while (!sair) {
     // Ações baseadas no local.
     console.log(acoesPossiveis.acoesLocal);
 
-    let acao = entrada("AÇÃO: ");
-    if (acao.toLowerCase() == "sair") {
+    escreva("\nCOMANDO: ");
+    let comando = leia("> ");
+    if (comando.toLowerCase() == "sair") {
         sair = true;
     } else {
-        
+        console.clear();
+        if (validarComandos(comando)) {
+            console.log("Comando válido");
+        } else {
+            console.log("Comando inválido");
+        }
     }
 }

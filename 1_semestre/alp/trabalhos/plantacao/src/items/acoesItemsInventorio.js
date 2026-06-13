@@ -1,4 +1,4 @@
-import inventorio from "../inventorio.js";
+import inventorio from "../inventorio/inventorio.js";
 import acoes from "./acoes.js";
 
 // A função abaixo cria um objete contendo a(s) ação(ões) de cada um dos item que o usuário tem no seu inventório.

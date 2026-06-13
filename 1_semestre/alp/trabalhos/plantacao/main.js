@@ -1,7 +1,7 @@
 import carregarComandosPossiveis from "./src/carregarComandosPossiveis.js";
 import validarComandos from "./src/validarComando.js";
 import locais from "./src/locais.js";
-import inventorio from "./src/inventorio.js"
+import mostrarInventorio from "./src/inventorio/mostrarInventorio.js"
 import escreva from "./src/saida.js";
 import leia from "./src/entrada.js";
 import chalk from "chalk";
@@ -23,8 +23,7 @@ while (!sair) {
     escreva(`Mais precisamente no(a) ${ locais.local.toLocaleLowerCase() }`);
     escreva('='.repeat(40));
 
-    escreva("\nINVENTÓRIO:");
-    inventorio.forEach(i => escreva(`[ ${ i } ]`))
+    mostrarInventorio();
 
     escreva("\nVocê pode:");
 

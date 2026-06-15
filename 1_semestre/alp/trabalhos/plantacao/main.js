@@ -3,7 +3,8 @@ import validarComandos from "./src/validarComando.js";
 import mostrarLocalizacaoAtual from "./src/locais/mostrarLocalizacaoAtual.js";
 import mostrarAcoesItemsInventorio from "./src/inventorio/mostrarAcoesItems.js";;
 import mostrarAcoesLocalizacao from "./src/locais/mostrarAcoes.js";
-import mostrarInventorio from "./src/inventorio/mostrarInventorio.js"
+import mostrarInventorio from "./src/inventorio/mostrarInventorio.js";
+import executarComando from "./src/executarComando.js";
 import escreva from "./src/saida.js";
 import leia from "./src/entrada.js";
 
@@ -24,9 +25,9 @@ while (!sair) {
     } else {
         console.clear();
         if (validarComandos(comando)) {
-            escreva("Comando válido");
+            executarComando(comando);
         } else {
-            escreva("Comando inválido");
+            escreva("Comando inválido", "bgRed");
         }
     }
 }

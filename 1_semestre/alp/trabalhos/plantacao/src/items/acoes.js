@@ -1,4 +1,5 @@
 import locais from "../locais/locais.js";
+import mudarStatusCampo from "../campos/mudarStatusCampo.js";
 
 let acoes = {
     "arado": {

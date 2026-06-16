@@ -1,9 +1,9 @@
-import campos from "./campos";
+import campos from "./campos.js";
 
 function mudarStatusCampo(campo, novoStatus) {
-    campos.forEach(c => {
+    Object.keys(campos).forEach(c => {
         if (c == campo) {
-            c.situacao = novoStatus;
+            campos[c].situacao = novoStatus;
         }
     })
 }

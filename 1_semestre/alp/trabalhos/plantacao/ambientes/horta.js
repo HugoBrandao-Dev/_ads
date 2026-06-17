@@ -11,7 +11,12 @@ export default {
     opcoes: {
         "1": { texto: "Voltar para o Celeiro", destino: "Celeiro" },
         "2": { texto: "Ir para o Pasto 02", destino: "Pasto02" },
-        "3": { texto: "Regar os tomates", arte: "gota", acao: () => "Você pegou o regador e molhou a terra. Os tomates parecem mais vivos!" },
+        "3": { texto: "Regar os tomates", arte: "gota", acao: () => {
+            if (buscar("regador")) {
+                return "Você pegou o regador e molhou a terra. Os tomates parecem mais vivos!";
+            }
+            return "Eita!! Você precisa de um regador para regar seus tomates.";
+        } },
         "4": { texto: "Inspecionar a terra", arte: "minhoca", acao: () => {
             escreva("Você mexe na terra e encontra uma minhoca gigante.", "yellow");
             escreva("[1] Colocar na terra de novo", "green");

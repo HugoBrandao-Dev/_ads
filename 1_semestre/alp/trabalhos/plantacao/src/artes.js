@@ -185,6 +185,16 @@ const dicionarioArtes = {
         [R, m, A, W, W, A, m, R],
         [m, R, A, A, A, A, R, m],
         [M, M, M, M, M, M, M, M]
+    ],
+    regador: [
+        [_, _, B, B, B, _, _, _],
+        [_, B, C, _, _, B, _, _],
+        [_, B, B, B, B, B, _, B],
+        [_, B, C, C, C, B, A, _],
+        [_, B, C, C, C, B, _, _],
+        [A, A, B, B, B, B, _, _],
+        [_, A, _, _, _, _, _, _],
+        [_, _, A, _, _, _, _, _]
     ]
 };
 

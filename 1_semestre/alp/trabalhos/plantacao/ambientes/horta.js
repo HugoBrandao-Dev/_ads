@@ -1,5 +1,10 @@
 import leia from "../src/entrada.js";
 import escreva from "../src/saida.js";
+import buscar from "../src/inventorio/buscarItem.js";
+import pegar from "../src/items/pegarItem.js";
+import guardar from "../src/inventorio/guardarItem.js";
+
+let localAtual = "Horta";
 
 export default {
     texto: "Você está na Horta, o cheiro de terra molhada é relaxante.",
@@ -19,6 +24,30 @@ export default {
         } },
         "5": { texto: "Arrancar ervas daninhas", arte: "grama", acao: () => "Você passou alguns minutos limpando os canteiros. A horta parece muito mais organizada." },
         "6": { texto: "Colher tomates maduros", arte: "tomate", acao: () => "Você encontrou alguns tomates vermelhos e suculentos. Parecem deliciosos!" },
-        "7": { texto: "Verificar o espantalho", arte: "espantalho", acao: () => "O espantalho está um pouco torto e com um chapéu engraçado. Parece que está fazendo um bom trabalho, nenhum pássaro por perto." }
-    }
+        "7": { texto: "Verificar o espantalho", arte: "espantalho", acao: () => "O espantalho está um pouco torto e com um chapéu engraçado. Parece que está fazendo um bom trabalho, nenhum pássaro por perto." },
+        "8": { texto: "Olhar para o canto da porteira", arte: "regador", acao: () => {
+            if (!buscar("regador")) {
+                escreva("\nVocê encontrou um Regador!\n", "magenta");
+            
+                let escolha = leia("Deseja pegá-lo? [s/n]");
+                if (escolha.toLowerCase() === "s") {
+                    if (pegar("regador")) {
+                        return "Você pegou o Regador.";
+                    }
+                    return "";
+                }
+            } else {
+                escreva("\nNo final da regagem, você guarda o seu Regador aqui!\n", "magenta");
+
+                let escolha = leia("Deseja guardar? [s/n]");
+                if (escolha.toLowerCase() === "s") {
+                    guardar("regador", localAtual);
+                    return "Você guardou seu Regador.";
+                }
+            }
+
+            return "Você parou de olhar para o canto da porteira.";
+        } }
+    },
+    items: []
 };

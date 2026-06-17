@@ -1,5 +1,6 @@
 import leia from "../src/entrada.js";
 import escreva from "../src/saida.js";
+import pegar from "../src/items/pegarItem.js";
 
 export default {
     texto: "Você está no Celeiro. À esquerda está o Pasto 01, à direita a Horta.",
@@ -14,7 +15,17 @@ export default {
             
             const escolha = leia("\nQual caixote você quer abrir? > ");
             if (escolha === "1") return "Você encontrou apenas alguns pregos enferrujados e teias de aranha.";
-            if (escolha === "2") return "Você encontrou uma velha Enxada!";
+            if (escolha === "2") {
+                escreva("\nVocê encontrou uma velha Enxada!\n", "magenta");
+                
+                let escolha = leia("Deseja pegá-la? [s/n]")
+                if (escolha.toLowerCase() === "s") {
+                    if (!pegar("enxada")) {
+                        return "Aparentemente, você já tem esse item.";
+                    }
+                }
+                return "Você pegou a velha Enxada.";
+            };
             return "Você desistiu de procurar e deixou os caixotes em paz.";
         } },
         "5": { texto: "Limpar as baias", arte: "vassoura", acao: () => "Você pegou uma vassoura e limpou as baias. Deu trabalho, mas o celeiro está mais cheiroso." },

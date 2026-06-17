@@ -1,3 +1,3 @@
-let inventorio = ["enchada"];
+let inventorio = [];
 
 export default inventorio;

@@ -2,6 +2,9 @@ import leia from "../src/entrada.js";
 import escreva from "../src/saida.js";
 import pegar from "../src/items/pegarItem.js";
 import buscar from "../src/inventorio/buscarItem.js";
+import guardar from "../src/inventorio/guardarItem.js";
+
+let localAtual = "Celeiro";
 
 export default {
     texto: "Você está no Celeiro. À esquerda está o Pasto 01, à direita a Horta.",
@@ -29,11 +32,20 @@ export default {
                         }
                         return "";
                     }
+                } else {
+                    escreva("\nVocê pode guardar sua velha Enxada!\n", "magenta");
+
+                    let escolha = leia("Deseja guardar? [s/n]");
+                    if (escolha.toLowerCase() === "s") {
+                        guardar("enxada", localAtual);
+                        return "Você guardou sua velha Enxada.";
+                    }
                 }
             };
             return "Você desistiu de procurar e deixou os caixotes em paz.";
         } },
         "5": { texto: "Limpar as baias", arte: "vassoura", acao: () => "Você pegou uma vassoura e limpou as baias. Deu trabalho, mas o celeiro está mais cheiroso." },
         "6": { texto: "Descansar no feno", arte: "zzz", acao: () => "Você deita em um monte de feno macio e tira um cochilo de 10 minutos. Revigorante!" }
-    }
+    },
+    items: []
 };

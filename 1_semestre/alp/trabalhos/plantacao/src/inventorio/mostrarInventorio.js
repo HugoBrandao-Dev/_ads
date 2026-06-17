@@ -1,7 +1,11 @@
 import escreva from "../saida.js";
-import inventorio from "./inventorio.js"
+import inventorio from "./inventorio.js";
 
 export default function mostrar() {
     escreva("\nINVENTÓRIO:");
-    inventorio.forEach(i => escreva(`[ ${ i } ]`))
+    if (inventorio.length === 0) {
+        escreva(" (vazio)", "gray");
+        return;
+    }
+    inventorio.forEach(i => escreva(` [ ${i} ]`, "yellow"));
 }

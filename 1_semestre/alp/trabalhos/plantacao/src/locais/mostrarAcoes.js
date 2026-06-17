@@ -1,8 +1,13 @@
 import escreva from "../saida.js";
 import comandosPossiveis from "../carregarComandosPossiveis.js";
 
-// A função abaixo mostrar as possíveis ações que o jogador pode fazer na localização atual.
 export default function mostrarAcoes() {
-    escreva("\nVocê pode ir para:");
-    escreva(comandosPossiveis().acoesLocal);
+    const { acoesLocal } = comandosPossiveis();
+
+    if (acoesLocal.length === 0) return;
+
+    escreva("\nNeste local você pode:");
+    acoesLocal.forEach(acao => {
+        escreva(` - ${acao}`, "cyan");
+    });
 }

@@ -1,6 +1,4 @@
-// Configuração de início.
-
-let espaco = "casa";
-let local = "sala de estar";
-
-export default {espaco, local};
+export default {
+    espaco: "casa",
+    local: "sala de estar"
+};

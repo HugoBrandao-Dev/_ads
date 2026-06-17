@@ -1,8 +1,13 @@
 import escreva from "../saida.js";
 import comandosPossiveis from "../carregarComandosPossiveis.js";
 
-// A função abaixo mostrará as ações somente dos items presentes no inventório do jogador.
 export default function mostrarAcoesItems() {
-    escreva("\nVocê pode:");
-    escreva(comandosPossiveis().acoesItems);
+    const acoes = comandosPossiveis().acoesItems;
+
+    if (acoes.length === 0) return;
+
+    escreva("\nCom os itens do inventário você pode:");
+    acoes.forEach(acao => {
+        escreva(` - ${acao}`, "magenta");
+    });
 }

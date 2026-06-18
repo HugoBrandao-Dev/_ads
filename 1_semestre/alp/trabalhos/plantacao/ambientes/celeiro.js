@@ -19,8 +19,6 @@ export default {
             
             const escolha = leia("\nQual caixote você quer abrir? > ");
             if (escolha === "1") {
-                // return "Você encontrou apenas alguns pregos enferrujados e teias de aranha."
-
                 if (!buscar("martelo")) {
                     escreva("\nVocê encontrou apenas alguns pregos e um martelo!\n", "magenta");
                 

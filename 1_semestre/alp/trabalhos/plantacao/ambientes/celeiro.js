@@ -18,7 +18,29 @@ export default {
             escreva("[2] Abrir o caixote grande", "green");
             
             const escolha = leia("\nQual caixote você quer abrir? > ");
-            if (escolha === "1") return "Você encontrou apenas alguns pregos enferrujados e teias de aranha.";
+            if (escolha === "1") {
+                // return "Você encontrou apenas alguns pregos enferrujados e teias de aranha."
+
+                if (!buscar("martelo")) {
+                    escreva("\nVocê encontrou apenas alguns pregos e um martelo!\n", "magenta");
+                
+                    let escolha = leia("Deseja pegá-lo? [s/n] ");
+                    if (escolha.toLowerCase() === "s") {
+                        if (pegar("martelo")) {
+                            return "Você pegou o Martelo.";
+                        }
+                        return "";
+                    }
+                } else {
+                    escreva("\nVocê pode guardar seu Martelo nesse pequeno caixote!\n", "magenta");
+
+                    let escolha = leia("Deseja guardá-lo? [s/n] ");
+                    if (escolha.toLowerCase() === "s") {
+                        guardar("enxada", localAtual);
+                        return "Você guardou seu Martelo.";
+                    }
+                }
+            }
             if (escolha === "2") {
 
                 // Caso a enxada nao esteja no inventorio.

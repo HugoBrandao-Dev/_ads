@@ -57,6 +57,29 @@ export default {
             }
 
             return "Você parou de olhar para o canto da porteira.";
+        } },
+        "9": { texto: "Há um balde aqui, embaixo da torneira", arte: "balde", acao: () => {
+            if (!buscar("balde")) {
+                escreva("\nVocê está diante de um balde!\n", "magenta");
+            
+                let escolha = leia("Deseja pegá-lo? [s/n] ");
+                if (escolha.toLowerCase() === "s") {
+                    if (pegar("balde")) {
+                        return "Você pegou um balde já com água.";
+                    }
+                    return "";
+                }
+            } else {
+                escreva("\nVocê pode colocar seu balde aqui, embaixo da torneira!\n", "magenta");
+
+                let escolha = leia("Deseja guardá-lo? [s/n] ");
+                if (escolha.toLowerCase() === "s") {
+                    guardar("balde", localAtual);
+                    return "Você colocou seu balde embaixo da torneira.";
+                }
+            }
+
+            return "Você se afastou da torneira";
         } }
     },
     items: []

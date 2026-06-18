@@ -195,7 +195,17 @@ const dicionarioArtes = {
         [A, A, B, B, B, B, _, _],
         [_, A, _, _, _, _, _, _],
         [_, _, A, _, _, _, _, _]
-    ]
+    ],
+    balde: [
+        [_, _, _, A, A, _, _, _],
+        [_, _, A, _, _, A, _, _],
+        [_, A, B, B, B, B, A, _],
+        [_, A, B, B, B, B, A, _],
+        [_, A, A, A, A, A, A, _],
+        [_, _, A, A, A, A, _, _],
+        [_, _, A, A, A, A, _, _],
+        [_, _, _, _, _, _, _, _]  
+    ],
 };
 
 export default function desenharArte(nome) {

@@ -6,15 +6,7 @@ import desenharArte from "./src/artes.js";
 import criarTabelaUsuario from "./src/db/usuario/ddl.ts";
 import {interfaceUsuario, novoUsuario} from "./src/db/usuario/novoUsuario.ts";
 
-/*
-interfaceUsuario.nome = "tobias";
-interfaceUsuario.email = "tobias@gmail.com";
-interfaceUsuario.usuario = "tob";
-interfaceUsuario.senha = "tobias123";
-*/
-
 export async function iniciarJogo() {
-    console.log(novoUsuario(interfaceUsuario));
     let jogando = true;
     console.clear();
 

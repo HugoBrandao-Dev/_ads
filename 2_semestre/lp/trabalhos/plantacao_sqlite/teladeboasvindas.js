@@ -4,12 +4,18 @@ import { iniciarJogo } from "./main.js";
 
 escreva("=== Inicializando o Jogo ===", "bgBlue");
 
+/*
 let nome = leia("Por favor, digite o seu nome: ", "green");
 
 while (!nome.trim()) {
     escreva("Você precisa digitar um nome para continuar!", "red");
     nome = leia("Por favor, digite o seu nome: ", "green");
 }
+*/
+
+import login from "./src/conta/telaLogin.ts";
+
+login();
 
 escreva(`\nSeja bem-vindo(a) à Fazenda, ${nome}!`);
 escreva("Navegue pelos ambientes usando os números das opções.\n");

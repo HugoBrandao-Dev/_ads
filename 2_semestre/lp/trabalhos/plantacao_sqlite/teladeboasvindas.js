@@ -1,6 +1,8 @@
 import escreva from "./src/saida.js";
 import leia from "./src/entrada.js";
 import { iniciarJogo } from "./main.js";
+import telaLogin from "./src/conta/telaLogin.ts";
+import contaLogada from "./src/conta/contaLogada.ts";
 
 escreva("=== Inicializando o Jogo ===", "bgBlue");
 
@@ -13,11 +15,9 @@ while (!nome.trim()) {
 }
 */
 
-import login from "./src/conta/telaLogin.ts";
+telaLogin();
 
-login();
-
-escreva(`\nSeja bem-vindo(a) à Fazenda, ${nome}!`);
+escreva(`\nSeja bem-vindo(a) à Fazenda, ${ contaLogada.usua_nome }!`);
 escreva("Navegue pelos ambientes usando os números das opções.\n");
 
 escreva("=== A SUA HISTÓRIA ===", "magenta");

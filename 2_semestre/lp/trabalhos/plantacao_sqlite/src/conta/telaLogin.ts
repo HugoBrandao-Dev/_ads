@@ -3,23 +3,43 @@ import logar from "./logar.ts";
 import leia from "../entrada.js";
 import escreva from "../saida.js";
 
+type OpcoesValidas = 'l' | 'c' | 's';
+
+function opcaoInvalida(opcao: OpcoesValidas): boolean {
+    // Verifica se a opção do usuaŕio é um caracter.
+    const eLetra: boolean = opcao.length === 1;
+
+    // Verifica se é a letra l, r, s.
+    const eLetraMenu: boolean = ['l', 'c', 's'].includes(opcao.toLowerCase());
+
+    return !eLetra || !eLetraMenu;
+}
+
 function login() {
-    while (!(contaLogada.usua_id)) {
+    let opcao: OpcoesValidas;
 
-        let opcao: string = "";
+    do {
+        escreva(`
+[L]ogar
+[C]adastrar
+[S]air`);
+        opcao = leia(`> `);
 
-        // Verifica se a opção do usuaŕio é um caracter (r ou l)
-        while (opcao.length !== 1 || !['l', 'r'].includes(opcao.toLocaleLowerCase())) {
-            console.log();
-            opcao = leia("[L]ogar ou [R]egistrar? <l/r>  ");
-
-            if (opcao === 'l') {
+        switch (opcao) {
+            case 'l':
                 logar();
-            } else  {
-                // cadastrar();
-            }
+                break;
+            case 'c':
+                console.log("Cadastrar");
+                break;
+            case 's':
+                console.log("Saiu...");
+                break;
+            default:
+                escreva("\nOpção inválida");
         }
-    }
+
+    } while (opcaoInvalida(opcao));
 }
 
 export default login;

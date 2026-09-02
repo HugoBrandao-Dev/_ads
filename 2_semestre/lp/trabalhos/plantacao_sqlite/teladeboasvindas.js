@@ -17,6 +17,8 @@ while (!nome.trim()) {
 
 telaLogin();
 
+if (contaLogada.usua_id !== 0) {
+
 escreva(`\nSeja bem-vindo(a) à Fazenda, ${ contaLogada.usua_nome }!`);
 escreva("Navegue pelos ambientes usando os números das opções.\n");
 
@@ -43,3 +45,5 @@ escreva(`
 leia("\nPressione ENTER para começar...", "cyan");
 
 await iniciarJogo();
+
+}

@@ -1,3 +1,4 @@
+import buscarUsuarioPeloUsuario from "../db/usuario/buscarUsuarioPeloUsuario.ts";
 import leia from "../entrada.js";
 import escreva from "../saida.js";
 
@@ -19,6 +20,12 @@ function initCadastrar() {
     cadastro.usua_nome = leia("Informse seu nome: ");
     cadastro.usua_email = leia("Informe seu email: ");
     cadastro.usua_usuario = leia("Usuário (para login): ");
+
+    while (buscarUsuarioPeloUsuario({usua_usuario: cadastro.usua_usuario}).length !== 0) {
+        escreva("\nUsuário para login já cadastrado, escolha outro!!!", "bgRed");
+        cadastro.usua_usuario = leia("Usuário (para login): ");
+    }
+
     cadastro.usua_senha = leia("Senha: ");
     
     let senhaNovamente: string = leia("Digite novamente a senha: ");

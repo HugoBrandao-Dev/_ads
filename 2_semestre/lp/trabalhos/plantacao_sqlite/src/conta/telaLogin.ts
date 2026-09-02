@@ -1,5 +1,6 @@
 import contaLogada from "./contaLogada.ts";
 import logar from "./logar.ts";
+import initCadastrar from "./cadastrar.ts";
 import leia from "../entrada.js";
 import escreva from "../saida.js";
 
@@ -30,7 +31,7 @@ function login() {
                 logar();
                 break;
             case 'c':
-                console.log("Cadastrar");
+                initCadastrar();
                 break;
             case 's':
                 console.log("Saiu...");

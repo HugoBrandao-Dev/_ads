@@ -3,9 +3,6 @@ import escreva from "./src/saida.js";
 import leia from "./src/entrada.js";
 import desenharArte from "./src/artes.js";
 
-import criarTabelaUsuario from "./src/db/usuario/ddl.ts";
-import {interfaceUsuario, novoUsuario} from "./src/db/usuario/novoUsuario.ts";
-
 export async function iniciarJogo() {
     let jogando = true;
     console.clear();

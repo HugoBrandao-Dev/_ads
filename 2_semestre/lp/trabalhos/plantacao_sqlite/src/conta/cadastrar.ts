@@ -1,3 +1,4 @@
+import criarUsuario from "../db/usuario/criarUsuario.ts";
 import buscarUsuarioPeloUsuario from "../db/usuario/buscarUsuarioPeloUsuario.ts";
 import leia from "../entrada.js";
 import escreva from "../saida.js";
@@ -17,7 +18,7 @@ function initCadastrar() {
         usua_senha: ""
     };
 
-    cadastro.usua_nome = leia("Informse seu nome: ");
+    cadastro.usua_nome = leia("Informe seu nome: ");
     cadastro.usua_email = leia("Informe seu email: ");
     cadastro.usua_usuario = leia("Usuário (para login): ");
 
@@ -35,7 +36,13 @@ function initCadastrar() {
         senhaNovamente = leia("Digite novamente a senha: ");
     }
 
-    console.log("Cadastrado com sucesso!!");
+    const criadoComSucesso: boolean = criarUsuario(cadastro) !== 0;
+
+    if (criadoComSucesso) {
+        escreva("\nCadastrado com sucesso!!", "bgGreen");
+    } else {
+        throw new Error("Erro no cadastramento do usuário");
+    }
 }
 
 export default initCadastrar;

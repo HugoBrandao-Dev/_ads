@@ -1,5 +1,6 @@
 import db from "../conexao.ts";
 import localizacaoDML from "./dml.ts";
+import listarLocalizacao from './listarLocalizacao.ts'
 
 const sql: string = `
     CREATE TABLE IF NOT EXISTS localizacao(
@@ -11,6 +12,12 @@ const sql: string = `
 
 function exec(): void {
     db.exec(sql);
-    localizacaoDML();
+
+    // Verifica se a tabela localização está vazia
+    if (listarLocalizacao().length === 0) {
+
+        // Preenche a tabela localização.
+        localizacaoDML();
+    }
 }
 export default exec;

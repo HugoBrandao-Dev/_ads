@@ -1,5 +1,6 @@
 import db from "../conexao.ts";
 import itemDML from "./dml.ts";
+import listarItem from './listarItem.ts';
 
 const sql: string = `
     CREATE TABLE IF NOT EXISTS item(
@@ -11,6 +12,12 @@ const sql: string = `
 
 function exec() {
     db.exec(sql);
-    itemDML();
+
+    // Cria os itens padrão somente se a tabela item estiver vazia.
+    if (listarItem().length === 0) {
+
+        // Os itens padrão são inseridos
+        itemDML();
+    }
 }
 export default exec;

@@ -1,5 +1,5 @@
 import db from "../conexao.ts";
-// import itemDML from "./dml.ts";
+import itemDML from "./dml.ts";
 
 const sql: string = `
     CREATE TABLE IF NOT EXISTS item(
@@ -11,6 +11,6 @@ const sql: string = `
 
 function exec() {
     db.exec(sql);
-    // itemDML();
+    itemDML();
 }
 export default exec;

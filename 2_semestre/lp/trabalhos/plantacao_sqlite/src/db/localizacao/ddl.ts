@@ -11,6 +11,6 @@ const sql: string = `
 
 function exec(): void {
     db.exec(sql);
-    // localizacaoDML();
+    localizacaoDML();
 }
 export default exec;

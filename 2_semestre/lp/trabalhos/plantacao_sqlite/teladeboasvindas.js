@@ -1,19 +1,13 @@
 import escreva from "./src/saida.js";
 import leia from "./src/entrada.js";
+import initTabelas from "./src/db/initTabelas.ts";
 import { iniciarJogo } from "./main.js";
 import telaLogin from "./src/conta/telaLogin.ts";
 import contaLogada from "./src/conta/contaLogada.ts";
 
+initTabelas();
+
 escreva("=== Inicializando o Jogo ===", "bgBlue");
-
-/*
-let nome = leia("Por favor, digite o seu nome: ", "green");
-
-while (!nome.trim()) {
-    escreva("Você precisa digitar um nome para continuar!", "red");
-    nome = leia("Por favor, digite o seu nome: ", "green");
-}
-*/
 
 telaLogin();
 

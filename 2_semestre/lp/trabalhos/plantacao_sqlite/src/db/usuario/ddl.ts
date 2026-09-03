@@ -11,6 +11,6 @@ const sql: string = `
 `
 
 function exec() {
-    db.exec((sql));
+    db.exec(sql);
 }
-export default exec();
+export default exec;

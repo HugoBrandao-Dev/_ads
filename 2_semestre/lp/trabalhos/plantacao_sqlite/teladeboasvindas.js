@@ -4,11 +4,13 @@ import initTabelas from "./src/db/initTabelas.ts";
 import { iniciarJogo } from "./main.js";
 import telaLogin from "./src/conta/telaLogin.ts";
 import contaLogada from "./src/conta/contaLogada.ts";
+import teste from "./src/temp/teste.ts";
 
 initTabelas();
 
 escreva("=== Inicializando o Jogo ===", "bgBlue");
 
+teste();
 telaLogin();
 
 if (contaLogada.usua_id !== 0) {

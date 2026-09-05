@@ -9,10 +9,10 @@ type UsuarioItemID = {
     item_id: number
 }
 
-function buscarUsuarioItemPeloIDItem(usuarioItemID: UsuarioItemID): unknown {
+function buscarUsuarioItem(usuarioItemID: UsuarioItemID): unknown {
     const select = db.prepare(sql);
 
     return select.all(usuarioItemID.usua_id, usuarioItemID.item_id);
 }
 
-export default buscarUsuarioItemPeloIDItem;
+export default buscarUsuarioItem;

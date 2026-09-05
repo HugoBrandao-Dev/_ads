@@ -9,10 +9,10 @@ type UsuarioItemID = {
     item_id: number
 }
 
-function excluirUsuarioItemPeloIDItem(usuarioItemID: UsuarioItemID): unknown {
+function excluirUsuarioItem(usuarioItemID: UsuarioItemID): unknown {
     const select = db.prepare(sql);
 
     return select.run(usuarioItemID.usua_id, usuarioItemID.item_id);
 }
 
-export default excluirUsuarioItemPeloIDItem;
+export default excluirUsuarioItem;

@@ -19,7 +19,8 @@ const sqlLocaisPontais: string = `
         ('Porteira', 'Estrutura de madeira ou metal usada para delimitar e controlar o acesso a entradas, pastos e cercados'),
         ('Torneira', 'Dispositivo de controle do fluxo de água instalado em pontos estratégicos para irrigação, limpeza e consumo'),
         ('Macieira', 'Árvore frutífera cultivada no pomar para a produção e colheita de maçãs'),
-        ('Lareira', 'Estrutura de alvenaria destinada ao acendimento de fogo para aquecimento do ambiente e conforto térmico');
+        ('Lareira', 'Estrutura de alvenaria destinada ao acendimento de fogo para aquecimento do ambiente e conforto térmico'),
+        ('Correio', 'Ponto ou caixa de correspondência destinado ao recebimento e ao armazenamento de cartas, documentos e encomendas');
 `;
 
 const sqlMoveis: string = `

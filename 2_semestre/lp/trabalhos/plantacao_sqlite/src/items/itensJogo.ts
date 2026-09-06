@@ -1,14 +1,20 @@
 import escreva from "../saida.js";
 import leia from "../entrada.js";
 import temItensRequeridos from "../jogador/temItensRequeridos.ts";
+import buscarItemPeloNome from "../db/item/buscarItemPeloNome.ts";
+import type { ItemRetorno } from "../db/item/configItem.ts";
 
 const itensJogo: object = {
     "Vassoura": { 
         texto: "Há uma vassoura perto da porta", arte: "vassoura", 
         acao: () => {
-            const itensRequerido: string[] = ["Vassoura"];
+            const itensRequerido: string[] = ["Vassoura", "Maçã"];
 
-            const temItens: boolean = temItensRequeridos(itensRequerido);
+            const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
+                return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
+            });
+
+            const temItens: boolean = temItensRequeridos(itensRegistros);
 
             if (!temItens) {
                 escreva("\nVocê encontrou uma Vassoura!\n", "magenta");

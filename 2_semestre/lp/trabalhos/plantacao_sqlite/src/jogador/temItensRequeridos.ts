@@ -1,20 +1,15 @@
 import contaLogada from "../conta/contaLogada.ts";
 import buscarItemPeloNome from "../db/item/buscarItemPeloNome.ts";
+import type { ItemRetorno } from "../db/item/configItem.ts";
 import buscarUsuarioItem from "../db/usuario_item/buscarUsuarioItem.ts";
 
-type Item = {
-    item_id: number,
-    item_nome: string,
-    item_descricao: string
-}
+function temItensRequeridos(itens: ItemRetorno[]): boolean {
+    return itens.map(itemRegistro => {
+        const resultItemRetorno: ItemRetorno[] = buscarItemPeloNome({item_nome: itemRegistro.item_nome});
 
-function temItensRequeridos(nomesItens: string[]): boolean {
-    return nomesItens.map(nome => {
-        const itemLista = buscarItemPeloNome({item_nome: nome}) as Item[];
-        if (itemLista.length !== 0) {
-            const itemID: number = itemLista[0]!.item_id;
-
-            const result = buscarUsuarioItem({usua_id: contaLogada.usua_id, item_id: itemID}) as unknown[];
+        if (resultItemRetorno.length !== 0) {
+            const item: ItemRetorno = resultItemRetorno[0]!;
+            const result = buscarUsuarioItem({usua_id: contaLogada.usua_id, item_id: item.item_id}) as ItemRetorno[];
 
             return result.length !== 0;
         }

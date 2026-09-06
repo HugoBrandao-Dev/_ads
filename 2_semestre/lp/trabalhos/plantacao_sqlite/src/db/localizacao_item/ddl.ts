@@ -1,4 +1,5 @@
 import db from "../conexao.ts";
+import localizacaoItemDML from "./dml.ts"
 
 const sql: string = `
     CREATE TABLE IF NOT EXISTS localizacao_item
@@ -15,6 +16,7 @@ const sql: string = `
 
 function exec(): void {
     db.exec(sql);
+    localizacaoItemDML()
 }
 
 export default exec;

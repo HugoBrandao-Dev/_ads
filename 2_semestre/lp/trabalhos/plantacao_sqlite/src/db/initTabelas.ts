@@ -1,3 +1,4 @@
+import tabelaDashboard from "./dashboard/ddl.ts";
 import tabelaUsuario from "./usuario/ddl.ts";
 import tabelaItem from "./item/ddl.ts";
 import tabelaLocalizacao from "./localizacao/ddl.ts";
@@ -9,6 +10,7 @@ import tabelaUsuarioItem from "./usuario_item/ddl.ts";
 
 
 function initTabelas(): void {
+    tabelaDashboard();
     tabelaUsuario();
     tabelaItem();
     tabelaLocalizacao();

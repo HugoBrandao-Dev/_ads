@@ -4,7 +4,7 @@ const sql: string = `
     SELECT * FROM dashboard;
 `;
 
-function listarDashboard(): unknown {
+function listarDashboard(): unknown[] {
     const select = db.prepare(sql);
     return select.all();
 }

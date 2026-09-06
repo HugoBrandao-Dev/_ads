@@ -1,4 +1,5 @@
 import db from "../conexao.ts";
+import listarDashboard from "./listarDashboard.ts";
 
 const sql: string = `
     CREATE TABLE IF NOT EXISTS dashboard (
@@ -8,6 +9,7 @@ const sql: string = `
 
 function exec(): void {
     db.exec(sql);
+    console.log(listarDashboard());
 }
 
 export default exec;

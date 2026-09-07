@@ -156,6 +156,22 @@ const itensJogo: object = {
                     return "Você guardou sua velha Enxada.";
                 }
             }
+        },
+        usar: {
+            "Grama": () => {
+                const itensRequerido: string[] = ["Enxada"];
+
+                const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
+                    return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
+                });
+
+                const temItens: boolean = temItensRequeridos(itensRegistros);
+
+                if (temItens) {
+                    return "Você passou alguns minutos limpando os canteiros. A horta parece muito mais organizada."
+                }
+                return "Eita!! Você precisa de uma enxada para tirá-las";
+            }
         }
     }
 }

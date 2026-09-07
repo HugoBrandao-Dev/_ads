@@ -3,6 +3,7 @@ import escreva from "../src/saida.js";
 import buscar from "../src/inventorio/buscarItem.js";
 import pegar from "../src/items/pegarItem.js";
 import guardar from "../src/inventorio/guardarItem.js";
+import itensJogo from "../src/items/itensJogo.ts";
 
 let localAtual = "Horta";
 
@@ -27,12 +28,7 @@ export default {
             if (escolha === "2") return "Você guardou a minhoca no bolso. Eca!";
             return "Você ficou encarando a minhoca até ela fugir.";
         } },
-        "5": { texto: "Arrancar ervas daninhas", arte: "grama", acao: () => {
-            if (buscar("enxada")) {
-                return "Você passou alguns minutos limpando os canteiros. A horta parece muito mais organizada."
-            }
-            return "Eita!! Você precisa de uma enxada para tirá-las";
-        } },
+        "5": { texto: "Arrancar ervas daninhas", arte: "grama", acao: () => itensJogo["Enxada"]["usar"]["Grama"]() },
         "6": { texto: "Colher tomates maduros", arte: "tomate", acao: () => "Você encontrou alguns tomates vermelhos e suculentos. Parecem deliciosos!" },
         "7": { texto: "Verificar o espantalho", arte: "espantalho", acao: () => "O espantalho está um pouco torto e com um chapéu engraçado. Parece que está fazendo um bom trabalho, nenhum pássaro por perto." },
         "8": { texto: "Olhar para o canto da porteira", arte: "regador", acao: () => {

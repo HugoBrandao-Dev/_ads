@@ -175,7 +175,8 @@ const itensJogo: object = {
         }
     },
     "Regador": { 
-        texto: "Olhar para o canto da porteira", arte: "regador", 
+        texto: "Olhar para o canto da porteira", 
+        arte: "regador", 
         acao: () => {
             const itensRequerido: string[] = ["Regador"];
 
@@ -210,6 +211,40 @@ const itensJogo: object = {
 
             return "Você parou de olhar para o canto da porteira.";
         } 
+    },
+    "Balde": { 
+        texto: "Há um balde aqui, embaixo da torneira", 
+        arte: "balde", 
+        acao: () => {
+            const itensRequerido: string[] = ["Balde"];
+
+            const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
+                return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
+            });
+            const itensID: number[] = itensRegistros.map(i => i.item_id);
+
+            const temItens: boolean = temItensRequeridos(itensRegistros);
+            
+            if (!temItens) {
+                escreva("\nVocê está diante de um balde!\n", "magenta");
+            
+                let escolha = leia("Deseja pegá-lo? [s/n] ");
+                if (escolha.toLowerCase() === "s") {
+                    pegarItens(itensID);
+                    return "Você pegou um balde já com água.";
+                }
+            } else {
+                escreva("\nVocê pode colocar seu balde aqui, embaixo da torneira!\n", "magenta");
+
+                let escolha = leia("Deseja guardá-lo? [s/n] ");
+                if (escolha.toLowerCase() === "s") {
+                    guardarItens(itensID);
+                    return "Você colocou seu balde embaixo da torneira.";
+                }
+            }
+
+            return "Você se afastou da torneira";
+        }
     }
 }
 

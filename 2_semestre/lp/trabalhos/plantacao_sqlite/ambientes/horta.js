@@ -32,29 +32,7 @@ export default {
         "6": { texto: "Colher tomates maduros", arte: "tomate", acao: () => "Você encontrou alguns tomates vermelhos e suculentos. Parecem deliciosos!" },
         "7": { texto: "Verificar o espantalho", arte: "espantalho", acao: () => "O espantalho está um pouco torto e com um chapéu engraçado. Parece que está fazendo um bom trabalho, nenhum pássaro por perto." },
         "8": itensJogo["Regador"],
-        "9": { texto: "Há um balde aqui, embaixo da torneira", arte: "balde", acao: () => {
-            if (!buscar("balde")) {
-                escreva("\nVocê está diante de um balde!\n", "magenta");
-            
-                let escolha = leia("Deseja pegá-lo? [s/n] ");
-                if (escolha.toLowerCase() === "s") {
-                    if (pegar("balde")) {
-                        return "Você pegou um balde já com água.";
-                    }
-                    return "";
-                }
-            } else {
-                escreva("\nVocê pode colocar seu balde aqui, embaixo da torneira!\n", "magenta");
-
-                let escolha = leia("Deseja guardá-lo? [s/n] ");
-                if (escolha.toLowerCase() === "s") {
-                    guardar("balde", localAtual);
-                    return "Você colocou seu balde embaixo da torneira.";
-                }
-            }
-
-            return "Você se afastou da torneira";
-        } }
+        "9": itensJogo["Balde"]
     },
     items: []
 };

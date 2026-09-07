@@ -1,5 +1,6 @@
 import db from "../conexao.ts";
-import localizacaoItemDML from "./dml.ts"
+import localizacaoItemDML from "./dml.ts";
+import listarDashboard from "../dashboard/listarDashboard.ts";
 
 const sql: string = `
     CREATE TABLE IF NOT EXISTS localizacao_item
@@ -14,9 +15,22 @@ const sql: string = `
         );
 `;
 
+type ListaDashboard = {
+    dash_qt_inicializacoes?: number
+}
+
 function exec(): void {
     db.exec(sql);
-    localizacaoItemDML()
+
+    const result: unknown[] = listarDashboard();
+
+    if (result.length === 1) {
+        const lista: ListaDashboard = result[0]!;
+
+        if (lista.dash_qt_inicializacoes === 1) {
+            localizacaoItemDML();
+        }
+    }
 }
 
 export default exec;

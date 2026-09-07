@@ -1,7 +1,7 @@
-import buscarUsuarioSenha from "../db/usuario/buscarUsuarioSenha.ts";
 import leia from "../entrada.js";
-import contaLogada from "./contaLogada.ts";
 import escreva from "../saida.js";
+import buscarUsuarioSenha from "../db/usuario/buscarUsuarioSenha.ts";
+import initConfiguracoesJogador from "../jogador/initConfiguracoesJogador.ts";
 
 interface Login {
     usuario: string,
@@ -22,8 +22,7 @@ function logar() {
     const result: ContaLogada[] = buscarUsuarioSenha(login);
 
     if (Object.keys(result).length === 1) {
-        contaLogada.usua_id = result[0]!.usua_id;
-        contaLogada.usua_nome = result[0]!.usua_nome;
+        initConfiguracoesJogador(result[0]!);
         escreva("\nLogado com sucesso!!", "bgGreen");
     } else {
         escreva("\nUsuário ou senha inválido!!", "bgRed");

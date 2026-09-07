@@ -1,9 +1,6 @@
-type ContaLogada = {
-    usua_id: number,
-    usua_nome: string
-};
+import type { RetornoContaLogada } from "./configContaLogada.ts";
 
-const contaLogada: ContaLogada = {
+const contaLogada: RetornoContaLogada = {
     usua_id: 0,
     usua_nome: ""
 };

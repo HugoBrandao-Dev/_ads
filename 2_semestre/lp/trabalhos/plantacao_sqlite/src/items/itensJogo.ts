@@ -92,6 +92,36 @@ const itensJogo: object = {
                 }
             }
         } 
+    },
+    "Enxada": {
+        acao: () => {
+            const itensRequerido: string[] = ["Enxada"];
+
+            const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
+                return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
+            });
+            const itensID: number[] = itensRegistros.map(i => i.item_id);
+
+            const temItens: boolean = temItensRequeridos(itensRegistros);
+
+            if (!temItens) {
+                escreva("\nVocê encontrou uma velha Enxada!\n", "magenta");
+            
+                let escolha = leia("Deseja pegá-la? [s/n]");
+                if (escolha.toLowerCase() === "s") {
+                    pegarItens(itensID);
+                    return "Você pegou a velha Enxada.";
+                }
+            } else {
+                escreva("\nVocê pode guardar sua velha Enxada!\n", "magenta");
+
+                let escolha = leia("Deseja guardar? [s/n]");
+                if (escolha.toLowerCase() === "s") {
+                    guardarItens(itensID);
+                    return "Você guardou sua velha Enxada.";
+                }
+            }
+        }
     }
 }
 

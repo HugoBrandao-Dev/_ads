@@ -1,8 +1,5 @@
 import leia from "../src/entrada.js";
 import escreva from "../src/saida.js";
-import pegar from "../src/items/pegarItem.js";
-import buscar from "../src/inventorio/buscarItem.js";
-import guardar from "../src/inventorio/guardarItem.js";
 import itensJogo from "../src/items/itensJogo.ts";
 
 export default {
@@ -21,27 +18,7 @@ export default {
                 return itensJogo["Martelo"].acao();
             }
             if (escolha === "2") {
-
-                // Caso a enxada nao esteja no inventorio.
-                if (!buscar("enxada")) {
-                    escreva("\nVocê encontrou uma velha Enxada!\n", "magenta");
-                
-                    let escolha = leia("Deseja pegá-la? [s/n]");
-                    if (escolha.toLowerCase() === "s") {
-                        if (pegar("enxada")) {
-                            return "Você pegou a velha Enxada.";
-                        }
-                        return "";
-                    }
-                } else {
-                    escreva("\nVocê pode guardar sua velha Enxada!\n", "magenta");
-
-                    let escolha = leia("Deseja guardar? [s/n]");
-                    if (escolha.toLowerCase() === "s") {
-                        guardar("enxada", localAtual);
-                        return "Você guardou sua velha Enxada.";
-                    }
-                }
+                return itensJogo["Enxada"].acao();
             };
             return "Você desistiu de procurar e deixou os caixotes em paz.";
         } },

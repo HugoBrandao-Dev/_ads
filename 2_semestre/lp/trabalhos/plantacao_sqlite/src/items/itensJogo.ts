@@ -9,7 +9,8 @@ import type { ItemRetorno } from "../db/item/configItem.ts";
 
 const itensJogo: object = {
     "Vassoura": { 
-        texto: "Há uma vassoura perto da porta", arte: "vassoura", 
+        texto: "Há uma vassoura perto da porta", 
+        arte: "vassoura", 
         acao: () => {
             const itensRequerido: string[] = ["Vassoura"];
 
@@ -45,7 +46,8 @@ const itensJogo: object = {
         } 
     },
     "Correio": { 
-        texto: "Verificar o correio", arte: "carta", 
+        texto: "Verificar o correio", 
+        arte: "carta", 
         acao: () => {
             escreva("Você vai até a porta e olha a caixa de correio.", "yellow");
             escreva("[1] Abrir a caixa", "green");
@@ -54,6 +56,42 @@ const itensJogo: object = {
             if (escolha === "1") return "Dentro há apenas uma conta de luz vencida e um panfleto de pizzaria.";
             return "Você decide não olhar o correio agora.";
         }
+    },
+    "Martelo": { 
+        acao: () => {
+            const itensRequerido: string[] = ["Martelo"];
+
+            const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
+                return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
+            });
+            const itensID: number[] = itensRegistros.map(i => i.item_id);
+
+            const temItens: boolean = temItensRequeridos(itensRegistros);
+
+            if (!temItens) {
+                escreva("\nVocê encontrou apenas alguns pregos e um martelo!\n", "magenta");
+            
+                let escolha = leia("Deseja pegá-lo? [s/n] ");
+                if (escolha.toLowerCase() === "s") {
+
+                    pegarItens(itensID);
+                        
+                    return "Você pegou o Martelo.";
+
+                }
+            } else {
+                escreva("\nVocê pode guardar seu Martelo nesse pequeno caixote!\n", "magenta");
+
+                let escolha = leia("Deseja guardá-lo? [s/n] ");
+                if (escolha.toLowerCase() === "s") {
+
+                    guardarItens(itensID);
+
+                    return "Você guardou seu Martelo.";
+
+                }
+            }
+        } 
     }
 }
 

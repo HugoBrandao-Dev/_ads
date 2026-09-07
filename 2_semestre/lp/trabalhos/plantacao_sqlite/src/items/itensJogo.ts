@@ -210,7 +210,23 @@ const itensJogo: object = {
             }
 
             return "Você parou de olhar para o canto da porteira.";
-        } 
+        },
+        usar: {
+            "Tomates": () => {
+                const itensRequerido: string[] = ["Regador"];
+
+                const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
+                    return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
+                });
+
+                const temItens: boolean = temItensRequeridos(itensRegistros);
+
+                if (temItens) {
+                    return "Você pegou o regador e molhou a terra. Os tomates parecem mais vivos!";
+                }
+                return "Eita!! Você precisa de um regador para regar seus tomates.";
+            }
+        }
     },
     "Balde": { 
         texto: "Há um balde aqui, embaixo da torneira", 

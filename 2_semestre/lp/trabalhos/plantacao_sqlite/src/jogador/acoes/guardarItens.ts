@@ -3,12 +3,13 @@ import buscarLocalizacaoPeloNome from "../../db/localizacao/buscarLocalizacaoPel
 import criarLocalizacaoItem from "../../db/localizacao_item/criarLocalizacaoItem.ts";
 import buscarUsuarioItem from "../../db/usuario_item/buscarUsuarioItem.ts";
 import excluirUsuarioItem from "../../db/usuario_item/excluirUsuarioItem.ts";
+import { estado } from "../../../ambientes/index.js";
 
 import type { RetornoUsuarioItem } from "../../db/usuario_item/configUsuarioItem.ts";
 import type { RetornoLocalizacao } from "../../db/localizacao/configLocalizacao.ts";
 
 function guardarItens(itensID: number[]): void {
-    const localAtual: RetornoLocalizacao[] = buscarLocalizacaoPeloNome({loca_localizacao: contaLogada.localAtual!});
+    const localAtual: RetornoLocalizacao[] = buscarLocalizacaoPeloNome({loca_localizacao: estado.ambienteAtual!});
     const loca_id: number = localAtual[0]?.loca_id!;
 
     itensID.forEach(item_id => {

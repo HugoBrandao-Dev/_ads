@@ -108,7 +108,25 @@ const itensJogo: object = {
 
                 }
             }
-        } 
+        },
+        usar: {
+            "Cerca": () => {
+
+                const itensRequerido: string[] = ["Martelo"];
+
+                const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
+                    return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
+                });
+
+                const temItens: boolean = temItensRequeridos(itensRegistros);
+
+                if (!temItens) {
+                    return "Você precisa de Martelo e pregos para concertar essa cerca!\n";
+                }
+
+                return "Você concertou a cerca que estava quebrada!";
+            }
+        }
     },
     "Enxada": {
         acao: () => {

@@ -3,6 +3,7 @@ import leia from "../entrada.js";
 import temItensRequeridos from "../jogador/temItensRequeridos.ts";
 import buscarItemPeloNome from "../db/item/buscarItemPeloNome.ts";
 import pegarItens from "../jogador/acoes/pegarItens.ts";
+import guardarItens from "../jogador/acoes/guardarItens.ts";
 
 import type { ItemRetorno } from "../db/item/configItem.ts";
 
@@ -15,6 +16,7 @@ const itensJogo: object = {
             const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
                 return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
             });
+            const itensID: number[] = itensRegistros.map(i => i.item_id);
 
             const temItens: boolean = temItensRequeridos(itensRegistros);
 
@@ -23,8 +25,6 @@ const itensJogo: object = {
             
                 let escolha = leia("Deseja pegá-lo? [s/n] ");
                 if (escolha.toLowerCase() === "s") {
-                    const itensID: number[] = itensRegistros.map(i => i.item_id);
-                    
                     pegarItens(itensID);
 
                     return "Você pegou a Vassoura.";
@@ -34,9 +34,9 @@ const itensJogo: object = {
 
                 let escolha = leia("Deseja colocar a vassoura perto da porta? [s/n] ");
                 if (escolha.toLowerCase() === "s") {
-                    /*
-                    guardar("vassoura", localAtual);
-                    */
+                    
+                    guardarItens(itensID);
+
                     return "Você colocou a Vassoura perto da porta.";
                 }
             }

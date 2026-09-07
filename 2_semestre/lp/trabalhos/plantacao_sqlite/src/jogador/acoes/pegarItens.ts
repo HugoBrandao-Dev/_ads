@@ -16,7 +16,6 @@ function pegarItens(itensID: number[]): void {
 
     itensID.forEach(item_id => {
         const itemRegistro: RetornoLocalizacaoItem = buscarLocalizacaoItem({ loca_id, item_id })[0]!;
-        console.log(loca_id, item_id);
         if (itemRegistro.loit_quantidade === 1) {
             if (excluirLocalizacaoItem({loca_id, item_id})) {
                 criarUsuarioItem({usua_id: contaLogada.usua_id, item_id });

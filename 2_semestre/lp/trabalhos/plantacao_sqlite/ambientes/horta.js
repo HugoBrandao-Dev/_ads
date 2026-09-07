@@ -15,7 +15,7 @@ export default {
         "3": { texto: "Regar os tomates", arte: "gota", acao: () => itensJogo["Regador"]["usar"]["Tomates"]() },
         "4": itensJogo["Minhoca"],
         "5": { texto: "Arrancar ervas daninhas", arte: "grama", acao: () => itensJogo["Enxada"]["usar"]["Grama"]() },
-        "6": { texto: "Colher tomates maduros", arte: "tomate", acao: () => "Você encontrou alguns tomates vermelhos e suculentos. Parecem deliciosos!" },
+        "6": itensJogo["Tomate"],
         "7": { texto: "Verificar o espantalho", arte: "espantalho", acao: () => "O espantalho está um pouco torto e com um chapéu engraçado. Parece que está fazendo um bom trabalho, nenhum pássaro por perto." },
         "8": itensJogo["Regador"],
         "9": itensJogo["Balde"]

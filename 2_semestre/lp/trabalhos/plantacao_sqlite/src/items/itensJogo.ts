@@ -289,6 +289,31 @@ const itensJogo: object = {
             }
             return "Você ficou encarando a minhoca até ela fugir.";
         }
+    },
+    "Tomate": { 
+        texto: "Colher tomates maduros", 
+        arte: "tomate", 
+        acao: () => {
+            const itensRequerido: string[] = ["Tomate"];
+
+            const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
+                return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
+            });
+            const itensID: number[] = itensRegistros.map(i => i.item_id);
+
+            const temItens: boolean = temItensRequeridos(itensRegistros);
+
+            escreva("\nVocê encontrou alguns tomates vermelhos e suculentos. Parecem deliciosos!\n", "magenta");
+        
+            let escolha = leia("Deseja pegá-los? [s/n] ");
+            if (escolha.toLowerCase() === "s") {
+                pegarItens(itensID);
+
+                return "Você pegou os Tomates.";
+            }
+
+            return "Você apenas olhou os tomates e não fez nada!!!";
+        }
     }
 }
 

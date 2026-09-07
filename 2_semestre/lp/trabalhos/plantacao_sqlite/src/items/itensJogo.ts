@@ -2,13 +2,15 @@ import escreva from "../saida.js";
 import leia from "../entrada.js";
 import temItensRequeridos from "../jogador/temItensRequeridos.ts";
 import buscarItemPeloNome from "../db/item/buscarItemPeloNome.ts";
+import pegarItens from "../jogador/acoes/pegarItens.ts";
+
 import type { ItemRetorno } from "../db/item/configItem.ts";
 
 const itensJogo: object = {
     "Vassoura": { 
         texto: "Há uma vassoura perto da porta", arte: "vassoura", 
         acao: () => {
-            const itensRequerido: string[] = ["Vassoura", "Maçã"];
+            const itensRequerido: string[] = ["Vassoura"];
 
             const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
                 return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
@@ -21,12 +23,11 @@ const itensJogo: object = {
             
                 let escolha = leia("Deseja pegá-lo? [s/n] ");
                 if (escolha.toLowerCase() === "s") {
-                    /*
-                    if (pegar("vassoura")) {
-                        return "Você pegou a Vassoura.";
-                    }
-                        */
-                    return "";
+                    const itensID: number[] = itensRegistros.map(i => i.item_id);
+                    
+                    pegarItens(itensID);
+
+                    return "Você pegou a Vassoura.";
                 }
             } else {
                 escreva("\nVocê está carregando uma vassoura o tempo todo...\n", "magenta");

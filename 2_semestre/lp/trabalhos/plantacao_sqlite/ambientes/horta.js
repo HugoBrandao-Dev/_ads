@@ -31,29 +31,7 @@ export default {
         "5": { texto: "Arrancar ervas daninhas", arte: "grama", acao: () => itensJogo["Enxada"]["usar"]["Grama"]() },
         "6": { texto: "Colher tomates maduros", arte: "tomate", acao: () => "Você encontrou alguns tomates vermelhos e suculentos. Parecem deliciosos!" },
         "7": { texto: "Verificar o espantalho", arte: "espantalho", acao: () => "O espantalho está um pouco torto e com um chapéu engraçado. Parece que está fazendo um bom trabalho, nenhum pássaro por perto." },
-        "8": { texto: "Olhar para o canto da porteira", arte: "regador", acao: () => {
-            if (!buscar("regador")) {
-                escreva("\nVocê encontrou um Regador!\n", "magenta");
-            
-                let escolha = leia("Deseja pegá-lo? [s/n]");
-                if (escolha.toLowerCase() === "s") {
-                    if (pegar("regador")) {
-                        return "Você pegou o Regador.";
-                    }
-                    return "";
-                }
-            } else {
-                escreva("\nNo final da regagem, você guarda o seu Regador aqui!\n", "magenta");
-
-                let escolha = leia("Deseja guardar? [s/n]");
-                if (escolha.toLowerCase() === "s") {
-                    guardar("regador", localAtual);
-                    return "Você guardou seu Regador.";
-                }
-            }
-
-            return "Você parou de olhar para o canto da porteira.";
-        } },
+        "8": itensJogo["Regador"],
         "9": { texto: "Há um balde aqui, embaixo da torneira", arte: "balde", acao: () => {
             if (!buscar("balde")) {
                 escreva("\nVocê está diante de um balde!\n", "magenta");

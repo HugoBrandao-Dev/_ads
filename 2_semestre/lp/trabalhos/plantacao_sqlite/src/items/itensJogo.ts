@@ -173,6 +173,43 @@ const itensJogo: object = {
                 return "Eita!! Você precisa de uma enxada para tirá-las";
             }
         }
+    },
+    "Regador": { 
+        texto: "Olhar para o canto da porteira", arte: "regador", 
+        acao: () => {
+            const itensRequerido: string[] = ["Regador"];
+
+            const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
+                return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
+            });
+            const itensID: number[] = itensRegistros.map(i => i.item_id);
+
+            const temItens: boolean = temItensRequeridos(itensRegistros);
+
+            if (!temItens) {
+                escreva("\nVocê encontrou um Regador!\n", "magenta");
+            
+                let escolha = leia("Deseja pegá-lo? [s/n] ");
+                if (escolha.toLowerCase() === "s") {
+
+                    pegarItens(itensID);
+                    return "Você pegou o Regador.";
+                    
+                }
+            } else {
+                escreva("\nNo final da regagem, você guarda o seu Regador aqui!\n", "magenta");
+
+                let escolha = leia("Deseja guardar? [s/n] ");
+                if (escolha.toLowerCase() === "s") {
+
+                    guardarItens(itensID);
+                    return "Você guardou seu Regador.";
+
+                }
+            }
+
+            return "Você parou de olhar para o canto da porteira.";
+        } 
     }
 }
 

@@ -22,7 +22,7 @@ export default {
             };
             return "Você desistiu de procurar e deixou os caixotes em paz.";
         } },
-        "5": { texto: "Limpar as baias", arte: "vassoura", acao: () => "Você pegou uma vassoura e limpou as baias. Deu trabalho, mas o celeiro está mais cheiroso." },
+        "5": { texto: "Limpar as baias", arte: "vassoura", acao: () => itensJogo["Vassoura"]["usar"]["Bainha"]() },
         "6": { texto: "Descansar no feno", arte: "zzz", acao: () => "Você deita em um monte de feno macio e tira um cochilo de 10 minutos. Revigorante!" }
     },
     items: []

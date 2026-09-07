@@ -43,7 +43,24 @@ const itensJogo: object = {
             }
 
             return "Você apenas olhou a vassoura e não fez nada!!!";
-        } 
+        },
+        usar: {
+            "Bainha": () => {
+                const itensRequerido: string[] = ["Vassoura"];
+
+                const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
+                    return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
+                });
+
+                const temItens: boolean = temItensRequeridos(itensRegistros);
+
+                if (!temItens) {
+                    return "OPS!! Você está sem um vassoura!!";
+                }
+
+                return "Com uma vassoura em mãos, você limpou as baias. Deu trabalho, mas o celeiro está mais cheiroso."
+            }
+        }
     },
     "Correio": { 
         texto: "Verificar o correio", 

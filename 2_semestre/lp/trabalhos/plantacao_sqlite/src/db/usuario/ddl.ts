@@ -6,7 +6,10 @@ const sql: string = `
         usua_nome VARCHAR(100) NOT NULL,
         usua_email VARCHAR(100) NOT NULL,
         usua_usuario VARCHAR(25) NOT NULL,
-        usua_senha VARCHAR(50) NOT NULL
+        usua_senha VARCHAR(50) NOT NULL,
+
+        CONSTRAINT uk_usuario_email UNIQUE (usua_email),
+        CONSTRAINT uk_usuario_usuario UNIQUE (usua_usuario)
     );
 `
 

@@ -6,7 +6,9 @@ const sql: string = `
     CREATE TABLE IF NOT EXISTS localizacao(
         loca_id INTEGER PRIMARY KEY NOT NULL,
         loca_localizacao VARCHAR(100) NOT NULL,
-        loca_descricao VARCHAR(255) NOT NULL
+        loca_descricao VARCHAR(255) NOT NULL,
+
+        CONSTRAINT uk_localizacao_localizacao UNIQUE (loca_localizacao)
     );
 `
 

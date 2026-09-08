@@ -2,7 +2,7 @@ import escreva from "./src/saida.js";
 import leia from "./src/entrada.js";
 import initTabelas from "./src/db/initTabelas.ts";
 import { iniciarJogo } from "./main.js";
-import telaLogin from "./src/conta/telaLogin.ts";
+import initOpcoes from "./src/conta/initOpcoes.ts";
 import contaLogada from "./src/conta/contaLogada.ts";
 import teste from "./src/temp/teste.ts";
 
@@ -11,7 +11,7 @@ initTabelas();
 escreva("=== Inicializando o Jogo ===", "bgBlue");
 
 teste();
-telaLogin();
+initOpcoes();
 
 if (contaLogada.usua_id !== 0) {
 

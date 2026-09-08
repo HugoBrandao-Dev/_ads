@@ -7,7 +7,9 @@ const sql: string = `
         item_id INTEGER PRIMARY KEY NOT NULL,
         item_nome VARCHAR(100) NOT NULL,
         item_descricao VARCHAR(255) NOT NULL,
-        item_pequeno BOOLEAN DEFAULT 0
+        item_pequeno BOOLEAN DEFAULT 0,
+
+        CONSTRAINT uk_item_nome UNIQUE (item_nome)
     );
 `
 

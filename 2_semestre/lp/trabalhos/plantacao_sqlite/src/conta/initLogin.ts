@@ -14,8 +14,9 @@ type ContaLogada = {
     usua_nome: string
 }
 
-function logar() {
+function initLogin() {
 
+    console.log();
     login.usuario = leia("Usuario: ");
     login.senha = leia("Senha: ");
 
@@ -29,4 +30,4 @@ function logar() {
     }
 }
 
-export default logar;
+export default initLogin;

@@ -4,13 +4,11 @@ import initTabelas from "./src/db/initTabelas.ts";
 import { iniciarJogo } from "./main.js";
 import initOpcoes from "./src/conta/initOpcoes.ts";
 import contaLogada from "./src/conta/contaLogada.ts";
-import teste from "./src/temp/teste.ts";
 
 initTabelas();
 
 escreva("=== Inicializando o Jogo ===", "bgBlue");
 
-teste();
 initOpcoes();
 
 if (contaLogada.usua_id !== 0) {

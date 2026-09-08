@@ -6,6 +6,7 @@ import pegarItens from "../jogador/acoes/pegarItens.ts";
 import guardarItens from "../jogador/acoes/guardarItens.ts";
 
 import type { ItemRetorno } from "../db/item/configItem.ts";
+import comerItens from "../jogador/acoes/comerItens.ts";
 
 const itensJogo: object = {
     "Vassoura": { 
@@ -313,6 +314,34 @@ const itensJogo: object = {
             }
 
             return "Você apenas olhou os tomates e não fez nada!!!";
+        }
+    },
+    "Maca": { // Maçã
+        texto: "Procurar por frutas", 
+        arte: "maca", 
+        acao: () => {
+            const itensRequerido: string[] = ["Maçã"];
+
+            const itensRegistros: ItemRetorno[] = itensRequerido.map(i => {
+                return buscarItemPeloNome({item_nome: i})[0] as ItemRetorno;
+            });
+            const itensID: number[] = itensRegistros.map(i => i.item_id);
+
+            const temItens: boolean = temItensRequeridos(itensRegistros);
+
+            escreva("Você caminha entre as árvores antigas do pasto e nota algo vermelho brilhando nas folhas.", "yellow");
+            escreva("É uma macieira! Ela parece não ser cuidada há anos, mas os frutos continuam incrivelmente apetitosos.", "yellow");
+            escreva("[1] Pegar e comer uma maçã", "green");
+            escreva("[2] Deixar para lá", "green");
+
+            const escolha = leia("\nO que você faz? > ");
+
+            if (escolha.trim() === "1") {
+                comerItens(itensID);
+                return "Você arranca uma maçã do galho e dá uma grande mordida. O sabor é doce e suculento, matando sua fome na hora!"
+            }
+
+            return "Você vira as costas para a macieira e continua sua caminhada. Afinal, há muito trabalho a fazer.";
         }
     }
 }

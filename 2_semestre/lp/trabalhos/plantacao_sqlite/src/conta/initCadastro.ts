@@ -23,6 +23,16 @@ function validarEmail(email: string): string {
     return ""
 }
 
+function validarSenha(senhas: string[]): string {
+    if (!validator.isStrongPassword(senhas[0]!)) {
+        return "A senha é muito fraca";
+    }
+    if (senhas[0] !== senhas[1]) {
+        return "As senhas são diferentes";
+    }
+    return "";
+}
+
 function initCadastrar() {
     let email: string = "";
     let erro: string = "";
@@ -51,14 +61,14 @@ function initCadastrar() {
         cadastro.usua_usuario = leia("Usuário (para login): ");
     }
 
-    cadastro.usua_senha = leia("Senha: ");
-    
-    let senhaNovamente: string = leia("Digite novamente a senha: ");
-
-    while (cadastro.usua_senha !== senhaNovamente) {
-        escreva("\nAs senhas não conferem!!", "bgRed");
-        senhaNovamente = leia("Digite novamente a senha: ");
-    }
+    do {
+        cadastro.usua_senha = leia("Senha: ");
+        let senhaNovamente: string = leia("Digite novamente a senha: ");
+        erro = validarSenha([cadastro.usua_senha, senhaNovamente]);
+        if (erro.length !== 0) {
+            escreva(`\n${ erro }\n`, "bgRed");
+        }
+    } while (erro.length !== 0);
 
     const criadoComSucesso: boolean = criarUsuario(cadastro) !== 0;
 

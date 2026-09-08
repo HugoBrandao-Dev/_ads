@@ -1,6 +1,5 @@
-import contaLogada from "./contaLogada.ts";
-import logar from "./logar.ts";
-import initCadastrar from "./cadastrar.ts";
+import initLogin from "./initLogin.ts";
+import initCadastro from "./initCadastro.ts";
 import leia from "../entrada.js";
 import escreva from "../saida.js";
 
@@ -23,15 +22,15 @@ function login() {
         escreva(`
 [L]ogar
 [C]adastrar
-[S]air`);
+[S]air`, "grey");
         opcao = leia(`> `);
 
         switch (opcao) {
             case 'l':
-                logar();
+                initLogin();
                 break;
             case 'c':
-                initCadastrar();
+                initCadastro();
                 break;
             case 's':
                 console.log("Saiu...");
@@ -40,7 +39,7 @@ function login() {
                 escreva("\nOpção inválida");
         }
 
-    } while (opcaoInvalida(opcao));
+    } while (opcaoInvalida(opcao) && opcao !== 's');
 }
 
 export default login;

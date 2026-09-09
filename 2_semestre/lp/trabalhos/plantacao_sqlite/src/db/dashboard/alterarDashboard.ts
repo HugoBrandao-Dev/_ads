@@ -1,4 +1,3 @@
-import { AsyncLocalStorage } from "node:async_hooks";
 import db from "../conexao.ts";
 
 function prepararSQL(operacao: number): string {

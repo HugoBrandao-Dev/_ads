@@ -14,30 +14,31 @@ import buscarUsuarioItem from "../../db/usuario_item/buscarUsuarioItem.ts";
 function pegarItens(itensID: number[]): void {
     const localAtual: RetornoLocalizacao[] = buscarLocalizacaoPeloNome({loca_localizacao: estado.ambienteAtual!});
     const loca_id: number = localAtual[0]?.loca_id!;
+    const usua_id: number = contaLogada.usua_id;
 
     itensID.forEach(item_id => {
-        const itemRegistro: RetornoLocalizacaoItem = buscarLocalizacaoItem({ loca_id, item_id })[0]!;
+        const itemRegistro: RetornoLocalizacaoItem = buscarLocalizacaoItem({usua_id, loca_id, item_id })[0]!;
 
         // Verifica se só há UM item no db
-        if (itemRegistro.loit_quantidade === 1) {
+        if (itemRegistro.loit_qt_item === 1) {
 
             // Excluir o item do sistema
-            if (excluirLocalizacaoItem({loca_id, item_id})) {
+            if (excluirLocalizacaoItem({usua_id, loca_id, item_id})) {
 
                 // Registra o item no inventório do jogador
-                criarUsuarioItem({usua_id: contaLogada.usua_id, item_id });
+                criarUsuarioItem({usua_id, item_id });
             }
         } else {
 
             // Retira uma unidade do item do db
-            if (alterarLocalizacaoItemQtd({loca_id, item_id, valor: -1})) {
+            if (alterarLocalizacaoItemQtd({usua_id, loca_id, item_id, valor: -1})) {
 
-                if (buscarUsuarioItem({usua_id: contaLogada.usua_id, item_id}).length === 0) {
+                if (buscarUsuarioItem({usua_id, item_id}).length === 0) {
                     // Registra o item no inventório do jogador
-                    criarUsuarioItem({usua_id: contaLogada.usua_id, item_id });
+                    criarUsuarioItem({usua_id, item_id });
                 } else {
                     // Adiciona uma unidade do item no inventário do jogador
-                    alterarUsuarioItem({usua_id: contaLogada.usua_id, item_id}, 1);
+                    alterarUsuarioItem({usua_id, item_id}, 1);
                 }
             }
         }

@@ -7,7 +7,7 @@ function prepararSQL(parametros: ParametroLocalizacaoItem): string {
     const valoresSQL = '?'.repeat(chaves.length).split('').join();
 
     const sql: string = `
-        INSERT INTO localizacao_item
+        INSERT INTO usuario_localizacao_item
             (${ camposSQL })
         VALUES (${ valoresSQL });
     `;
@@ -17,7 +17,7 @@ function prepararSQL(parametros: ParametroLocalizacaoItem): string {
 
 function criarLocalizacaoItem(parametros: ParametroLocalizacaoItem): boolean {
     const inserir = db.prepare(prepararSQL(parametros));
-    return inserir.run(parametros.loca_id, parametros.item_id).changes === 1;
+    return inserir.run(parametros.usua_id, parametros.loca_id, parametros.item_id).changes === 1;
 }
 
 export default criarLocalizacaoItem;

@@ -3,15 +3,16 @@ import type { ParametroLocalizacaoItem } from "./configLocalizacaoItem.ts";
 
 const sql: string = `
     DELETE FROM 
-        localizacao_item AS li 
+        usuario_localizacao_item AS uli 
     WHERE 
-        li.loca_id = ? AND
-        li.item_id = ?;
+        uli.usua_id = ? AND
+        uli.loca_id = ? AND
+        uli.item_id = ?;
 `;
 
 function excluirLocalizacaoItem(parametros: ParametroLocalizacaoItem): boolean {
     const exclusao = db.prepare(sql);
-    return exclusao.run(parametros.loca_id, parametros.item_id).changes === 1;
+    return exclusao.run(parametros.usua_id, parametros.loca_id, parametros.item_id).changes === 1;
 }
 
 export default excluirLocalizacaoItem;

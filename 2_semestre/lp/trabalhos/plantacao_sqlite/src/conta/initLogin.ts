@@ -1,29 +1,21 @@
 import leia from "../entrada.js";
 import escreva from "../saida.js";
-import buscarUsuarioSenha from "../db/usuario/buscarUsuarioSenha.ts";
 import initConfiguracoesJogador from "../jogador/initConfiguracoesJogador.ts";
-
-interface Login {
-    usuario: string,
-    senha: string
-}
-const login: Login = { usuario: "", senha: "" };
-
-type ContaLogada = {
-    usua_id: number,
-    usua_nome: string
-}
+import type { ParametroFazerLogin, RetornoFazerLogin } from "../db/usuario/TiposUsuario.ts";
+import fazerLogin from "../db/usuario/fazerLogin.ts";
 
 function initLogin() {
+    const login: ParametroFazerLogin = { usua_usuario: "", usua_senha: "" };
 
     console.log();
-    login.usuario = leia("Usuario: ");
-    login.senha = leia("Senha: ");
+    login.usua_usuario = leia("Usuario: ");
+    login.usua_senha = leia("Senha: ");
 
-    const result: ContaLogada[] = buscarUsuarioSenha(login);
+    const result: RetornoFazerLogin = fazerLogin(login);
 
-    if (Object.keys(result).length === 1) {
-        initConfiguracoesJogador(result[0]!);
+    if (result.usua_id !== 0) {
+        initConfiguracoesJogador(result);
+        console.clear();
         escreva("\nLogado com sucesso!!", "bgGreen");
     } else {
         escreva("\nUsuário ou senha inválido!!", "bgRed");

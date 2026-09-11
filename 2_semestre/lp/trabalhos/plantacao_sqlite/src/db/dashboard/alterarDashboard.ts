@@ -17,10 +17,6 @@ type AlterarDashboard = {
 
 function alterarDashboard(alterarDashboard: AlterarDashboard): unknown {
     const sql: string = prepararSQL(alterarDashboard.operacao);
-<<<<<<< HEAD
-    console.log(sql);
-=======
->>>>>>> plantacao_sqlite
 
     const alterar = db.prepare(sql);
 

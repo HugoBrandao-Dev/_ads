@@ -9,7 +9,7 @@ initTabelas();
 
 escreva("=== Inicializando o Jogo ===", "bgBlue");
 
-initOpcoes();
+await initOpcoes();
 
 if (contaLogada.usua_id !== 0) {
 

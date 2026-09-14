@@ -1,3 +1,4 @@
+import inquirer from "inquirer";
 import initLogin from "./initLogin.ts";
 import initCadastro from "./initCadastro.ts";
 import leia from "../entrada.js";
@@ -16,15 +17,23 @@ function opcaoInvalida(opcao: OpcoesValidas): boolean {
     return !eLetra || !eLetraMenu;
 }
 
-function login() {
+async function login() {
     let opcao: OpcoesValidas;
 
     do {
-        escreva(`
-[L]ogar
-[C]adastrar
-[S]air`, "grey");
-        opcao = leia(`> `);
+        const resposta = await inquirer.prompt([
+            {
+                type: "select",
+                name: "opcao",
+                message: "Menu",
+                choices: [
+                    { name: "Logar", value: "l" },
+                    { name: "Cadastrar", value: "c" },
+                    { name: "Sair", value: "s" },
+                ],
+            },
+        ]);
+        opcao = resposta.opcao;
         console.clear();
         switch (opcao) {
             case 'l':

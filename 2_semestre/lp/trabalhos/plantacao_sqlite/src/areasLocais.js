@@ -1,9 +1,8 @@
 let areas = [
-    {
-        nome: "campo"
-    }, {
-        nome: "casa"
-    }
-]
-
-
+  {
+    nome: "campo",
+  },
+  {
+    nome: "casa",
+  },
+];

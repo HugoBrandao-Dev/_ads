@@ -4,11 +4,20 @@ import temItensRequeridos from "../jogador/temItensRequeridos.ts";
 import buscarItemPeloNome from "../db/item/buscarItemPeloNome.ts";
 import pegarItens from "../jogador/acoes/pegarItens.ts";
 import guardarItens from "../jogador/acoes/guardarItens.ts";
-
-import type { ItemRetorno } from "../db/item/configItem.ts";
 import comerItens from "../jogador/acoes/comerItens.ts";
 
-const itensJogo: object = {
+import type { ItemRetorno } from "../db/item/configItem.ts";
+
+type ItemJogo = {
+    [nome: string]: {
+        texto?: string,
+        arte?: string,
+        acao: () => void,
+        usar?: object
+    }
+}
+
+const itensJogo: ItemJogo = {
     "Vassoura": { 
         texto: "Há uma vassoura perto da porta", 
         arte: "vassoura", 

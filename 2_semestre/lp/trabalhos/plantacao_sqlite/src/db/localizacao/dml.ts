@@ -34,8 +34,8 @@ const sqlMoveis: string = `
 
 function exec() {
     db.exec(sql);
-    db.exec(sqlLocaisPontais);
-    db.exec(sqlMoveis);
+    // db.exec(sqlLocaisPontais);
+    // db.exec(sqlMoveis);
 }
 
 export default exec;

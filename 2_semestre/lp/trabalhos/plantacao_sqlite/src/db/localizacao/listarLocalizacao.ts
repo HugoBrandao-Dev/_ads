@@ -1,9 +1,5 @@
 import db from "../conexao.ts";
-
-type Localizacao = {
-    item_nome: string,
-    item_descricao: string
-}
+import type { RetornoLocalizacao } from "./configLocalizacao.ts";
 
 const sql: string = `
     SELECT 
@@ -12,12 +8,9 @@ const sql: string = `
     FROM localizacao AS l;
 `
 
-function exec(): Localizacao[] {
+function listarLocalizacao(): RetornoLocalizacao[] {
     const selectItem = db.prepare(sql);
-    
-    const result = selectItem.all() as Localizacao[];
-
-    return result;
+    return selectItem.all() as RetornoLocalizacao[];
 }
 
-export default exec;
+export default listarLocalizacao;

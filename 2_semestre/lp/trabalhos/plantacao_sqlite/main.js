@@ -2,12 +2,14 @@ import { ambientes, estado } from "./ambientes/index.js";
 import escreva from "./src/saida.js";
 import leia from "./src/entrada.js";
 import desenharArte from "./src/artes.js";
+import modificarTextos from "./src/items/modificarTextos.ts";
 
 export async function iniciarJogo() {
     let jogando = true;
     console.clear();
 
     while (jogando) {
+        modificarTextos();
         const ambiente = ambientes[estado.ambienteAtual];
 
         escreva(`\n=== ${estado.ambienteAtual} ===`, "blue");

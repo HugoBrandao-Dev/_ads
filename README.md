@@ -5,6 +5,8 @@ Jogo de aventura em texto (text adventure), executado no terminal, onde o jogado
 Esta versão evolui o projeto original do 1º semestre adicionando **persistência em banco de dados SQLite**, com sistema de **conta de usuário** (cadastro/login) e **inventário** salvo entre sessões.
 
 ## Descrição
+<img width="1944" height="1104" alt="image" src="https://github.com/user-attachments/assets/aa3c878a-6aad-482d-9aea-6f16bfb3d4b6" />
+
 
 O jogo simula uma propriedade rural contendo uma residência, celeiro, horta, pastos e campos de plantação. O jogador navega entre esses ambientes usando um menu numérico, interage com objetos (ferramentas, plantações, animais), coleta itens para o inventário e usa esses itens para desbloquear novas ações (ex: usar a Enxada na Grama, o Regador nos Tomates, o Martelo na Cerca).
 

@@ -1,6 +1,6 @@
 # 🌾 Plantação (SQLite Edition)
 
-Jogo de aventura em texto (text adventure), executado no terminal, onde o jogador assume o controle de uma antiga fazenda da família. O objetivo é explorar os ambientes, recuperar itens esquecidos, cuidar da terra e restaurar a propriedade à sua antiga glória.
+   Jogo de aventura em texto (text adventure), executado no terminal, onde o jogador assume o controle de uma antiga fazenda da família. O objetivo é explorar os ambientes, recuperar itens esquecidos, cuidar da terra e restaurar a propriedade à sua antiga glória.
 
 Esta versão evolui o projeto original do 1º semestre adicionando **persistência em banco de dados SQLite**, com sistema de **conta de usuário** (cadastro/login) e **inventário** salvo entre sessões.
 

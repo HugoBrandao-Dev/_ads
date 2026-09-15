@@ -61,7 +61,10 @@ O jogo simula uma propriedade rural contendo uma residência, celeiro, horta, pa
 ## Como executar
 
 
-1 . navegue até cd 2_semestre/lp/trabalhos/plantacao_sqlite/
+1. Procure o caminho:
+   ```bash
+   cd 2_semestre/lp/trabalhos/plantacao_sqlite/
+   ```
 2. Instale as dependências:
    ```bash
    npm install

@@ -20,6 +20,29 @@ O jogo simula uma propriedade rural contendo uma residência, celeiro, horta, pa
 - **Artes ASCII**: ilustrações em texto para itens e cenas do jogo.
 - **Saída colorida no terminal** via `chalk`, para destacar textos, opções e diálogos.
 
+
+## Mapa do jogo 
+
+                    [ CASA ]
+              (sala de estar, lareira,
+                correio, vassoura)
+                       │
+                       │
+                  [ CELEIRO ]
+              (caixotes, feno, baias)
+                    ╱       ╲
+                   ╱         ╲
+          [ PASTO 01 ]     [ HORTA ]
+        (grama, chamar        │ (tomates, minhocas,
+           animais)           │  ervas, espantalho)
+              │                │
+              │                │
+        [ CERCADO ]      [ PASTO 02 ]
+       (cocho d'água,   (árvores, sombra,
+        consertar cerca)    macieira)
+
+
+
 ## Tecnologias utilizadas
 
 - [Node.js](https://nodejs.org/) (ES Modules)
@@ -56,26 +79,6 @@ Na primeira execução, as tabelas do banco de dados são criadas automaticament
 - As demais opções numeradas representam ações disponíveis no ambiente atual (examinar, pegar, usar itens, etc.).
 - Digite `sair` a qualquer momento para encerrar o jogo.
 
-
-## Mapa do jogo 
-
-                    [ CASA ]
-              (sala de estar, lareira,
-                correio, vassoura)
-                       │
-                       │
-                  [ CELEIRO ]
-              (caixotes, feno, baias)
-                    ╱       ╲
-                   ╱         ╲
-          [ PASTO 01 ]     [ HORTA ]
-        (grama, chamar        │ (tomates, minhocas,
-           animais)           │  ervas, espantalho)
-              │                │
-              │                │
-        [ CERCADO ]      [ PASTO 02 ]
-       (cocho d'água,   (árvores, sombra,
-        consertar cerca)    macieira)
 
 
 

@@ -56,6 +56,29 @@ Na primeira execução, as tabelas do banco de dados são criadas automaticament
 - As demais opções numeradas representam ações disponíveis no ambiente atual (examinar, pegar, usar itens, etc.).
 - Digite `sair` a qualquer momento para encerrar o jogo.
 
+
+## Mapa do jogo 
+
+                    [ CASA ]
+              (sala de estar, lareira,
+                correio, vassoura)
+                       │
+                       │
+                  [ CELEIRO ]
+              (caixotes, feno, baias)
+                    ╱       ╲
+                   ╱         ╲
+          [ PASTO 01 ]     [ HORTA ]
+        (grama, chamar        │ (tomates, minhocas,
+           animais)           │  ervas, espantalho)
+              │                │
+              │                │
+        [ CERCADO ]      [ PASTO 02 ]
+       (cocho d'água,   (árvores, sombra,
+        consertar cerca)    macieira)
+
+
+
 ## Estrutura do projeto
 
 ```

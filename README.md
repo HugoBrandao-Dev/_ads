@@ -21,6 +21,26 @@ O jogo simula uma propriedade rural contendo uma residência, celeiro, horta, pa
 - **Saída colorida no terminal** via `chalk`, para destacar textos, opções e diálogos.
 
 
+## Como executar
+
+
+1. Procure o caminho:
+   ```bash
+   cd 2_semestre/lp/trabalhos/plantacao_sqlite/
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Inicie o jogo:
+   ```bash
+   npm start
+   ```
+
+Na primeira execução, as tabelas do banco de dados são criadas automaticamente (`plantacao.db`, ignorado pelo Git). Em seguida, cadastre uma conta ou faça login para começar a jogar.
+
+
+
 ## Mapa do jogo 
 
                     [ CASA ]
@@ -43,6 +63,22 @@ O jogo simula uma propriedade rural contendo uma residência, celeiro, horta, pa
 
 
 
+
+
+
+
+## Como jogar
+
+- Ao iniciar, escolha entre **Logar**, **Cadastrar** ou **Sair** no menu inicial.
+- Dentro do jogo, digite o número correspondente a cada opção exibida.
+- `[1]` sempre abre o mapa para trocar de ambiente.
+- As demais opções numeradas representam ações disponíveis no ambiente atual (examinar, pegar, usar itens, etc.).
+- Digite `sair` a qualquer momento para encerrar o jogo.
+
+
+
+
+
 ## Tecnologias utilizadas
 
 - [Node.js](https://nodejs.org/) (ES Modules)
@@ -57,32 +93,6 @@ O jogo simula uma propriedade rural contendo uma residência, celeiro, horta, pa
 ## Pré-requisitos
 
 - [Node.js](https://nodejs.org/) instalado (versão compatível com ES Modules e `better-sqlite3`)
-
-## Como executar
-
-
-1. Procure o caminho:
-   ```bash
-   cd 2_semestre/lp/trabalhos/plantacao_sqlite/
-   ```
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
-3. Inicie o jogo:
-   ```bash
-   npm start
-   ```
-
-Na primeira execução, as tabelas do banco de dados são criadas automaticamente (`plantacao.db`, ignorado pelo Git). Em seguida, cadastre uma conta ou faça login para começar a jogar.
-
-## Como jogar
-
-- Ao iniciar, escolha entre **Logar**, **Cadastrar** ou **Sair** no menu inicial.
-- Dentro do jogo, digite o número correspondente a cada opção exibida.
-- `[1]` sempre abre o mapa para trocar de ambiente.
-- As demais opções numeradas representam ações disponíveis no ambiente atual (examinar, pegar, usar itens, etc.).
-- Digite `sair` a qualquer momento para encerrar o jogo.
 
 
 
